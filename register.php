@@ -37,13 +37,13 @@
 		</div>
 		<div class="input-group">
 			<label>Phone Number</label>
-			<input type="number" name="phone" value="<?php echo $phone ?>">
+			<input type="text" name="phone" value="<?php echo $phone ?>">
 		</div>
 		<div>
 		<td>
-		Role:&nbsp;<input type="radio" name="role" value="<?php echo CUSTOMER?>">Normal
-		<input type="radio" name="role" value="<?php echo DESPATCHER?>">Despatcher
-		<input type="radio" name="role" value="<?php echo OWNER?>">Restaurant
+		Role:&nbsp; <div><input type="radio" name="role" value="<?php echo CUSTOMER?>">Customer </div>
+		&nbsp;<div ><input type="radio" name="role" value="<?php echo DESPATCHER?>">Despatcher</div>
+		&nbsp;<div><input type="radio" name="role" value="<?php echo OWNER?>">Restaurant Owner</div>
 		</td>
 		
 		<div class="input-group">

@@ -18,10 +18,8 @@
 </tr>
 <tr>
 	<?php
-	//$link = mysqli_connect("localhost","root","","ubung");
-	//$link = mysqli_connect("localhost","ca17100","ca17100","ca17100");
-	$link = mysqli_connect("localhost", "root", "", "", "3306");
-
+	$link = mysqli_connect("localhost","root","","ubung");
+	
 	$select = "select * FROM product JOIN restaurant ON product.RestaurantId=restaurant.Id";
 	$run = mysqli_query($link, $select);
 
@@ -36,13 +34,13 @@
 	<td align="center"><?php echo $Description;?></td>
 	<td align="center"><?php echo $RName;?></td>
 	<td align="center"><?php echo $Price;?></td>
+	
 	<form action="addtocart.php" method="post">
-	<td align="center"><input type="number" name="qty" ></td>
+	<td align="center"><input type="number" name="qty" min="1" max="5"></td>
 	<input type="hidden" name="ProductId" value=<?php echo $ProductId; ?> >
-	<input type="hidden" name="price" value=<?php echo $Price; ?> >
-	<td align="center"><input type="submit" name = "cart" value="Add to Cart">
+	<input type="hidden" name="Price" value=<?php echo $Price; ?> >
+	<td align="center"><input type="submit" name="cart" value="Add to Cart">
 	</form>
-	<td></td>
 </tr>
 	<?php }  ?>
 </table>
@@ -52,9 +50,9 @@
 </form>
 
 <br>
-<form action="orderMain.php" method="post">
+<!--form action="foodMenu.php" method="post">
 <button class="v_btn" type="submit">Go to Main Page</button>
-</form>
+</form-->
 </center>
 </body>
 </html>

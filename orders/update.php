@@ -9,7 +9,7 @@
 	}
 	else
 	{
-		$OldQuantity = $_POST['Quantity'];
+			$OldQuantity = $_POST['Quantity'];
 			$OldPrice = $_POST['Price'];
 			$PerUnit = $OldPrice/$OldQuantity;
 			$OrderId = $_POST['OrderId'];

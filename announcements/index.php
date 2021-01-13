@@ -14,29 +14,22 @@
                 <thead>
                     <tr>
                         <th style="width: 11%">Date</th>
-                        <th style="width: 30%">Title</th>
-                        <th style="width: 40%">Description</th>
-                        <th>Image</th>
-                        <th></th>
+                        <th style="width: 30%">Announcements Name</th>
+                        
+                        <th>Announecement Poster</th>
+                        <th>Announcements Details</th>
+                        
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Date</th>                        
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th></th>
-                    </tr>
-                </tfoot>
+                
                 <tbody>
                     <?php while ($row = mysqli_fetch_array($result)) { ?>
                     <tr>
                         <td><?php echo $row["ADate"]?></td>
                         <td><?php echo $row["Title"]?></td>
-                        <td><?php echo $row["Description"]?></td>
-                        <td><img src="/<?php echo ROOT ?>/uploads/<?php echo $row["Image"]?>" class="img-thumbnail" alt="Image" width="96" height="65"></td>
-                        <td><button class="btn btn-primary" onclick="window.location.href = 'details.php?id=<?php echo $row["Id"] ?>';">Details</button></td>
+                        
+                        <td><center><img src="/<?php echo ROOT ?>/uploads/<?php echo $row["Image"]?>" class="img-thumbnail" alt="Image" width="96" height="65"></center></td>
+                        <td><center><button class="btn btn-primary" onclick="window.location.href = 'details.php?id=<?php echo $row["Id"] ?>';">Details</button></center></td>
                     </tr>
                     <?php }?>
                 </tbody>

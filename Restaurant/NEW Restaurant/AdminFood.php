@@ -1,3 +1,8 @@
+<?php include '../../header.php'; ?>
+<title>Menu Table</title>
+
+<!--div align="center">[<a href="orderMain.php">Previous Page</a>]</div-->
+<h1 align="center">Menu Table</h1>
 <?php 
 
 $con = mysqli_connect('localhost','root','');
@@ -23,7 +28,7 @@ if (!mysqli_select_db($con,'UBung'))
 	
 function display(){
 		global $query,$con;
-		$query = "SELECT * FROM Product";
+		$query = "select * FROM product JOIN restaurant ON product.RestaurantId=restaurant.Id";
 		if ($result = $con->query($query)) {
 			while ($row = $result->fetch_assoc()) {
 				$id = $row["Id"];
@@ -52,41 +57,37 @@ function display(){
 	}
     
 ?>
-
-<!DOCTYPE html>
-<head>
-	<style>
-		table {
-			font-family: arial, sans-serif;
-			border-collapse: collapse;
-			width: 80%;
-		}
-
-		td, th {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
-
-		tr:nth-child(even) {
-			background-color: #dddddd;
-		}
-</style>
-</head>
 <body>
 
-<h2>Menu Table</h2>
+
 <h5>
-<table>
-  <tr>
-    <th>Id </th>
-	<th>Name</th>
-	<th>Description</th>
-    <th>Price</th>
-	<th>Restaurant Name</th>
-  </tr>
+<!--bostrap-->
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Restaurant Name</th>
+    </tr>
+  </thead>
+    <tr>
+	    <th>Id </th>
+		<th>Name</th>
+		<th>Description</th>
+	    <th>Price</th>
+		<th>Restaurant Name</th>
+  	</tr>
   <tr>
 		<?php display();?>
   </tr>
+</table>
 </body>
-</html>
+
+<?php include '../../footer.php'; ?>
+
+
+
+
+

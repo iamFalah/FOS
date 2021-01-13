@@ -15,9 +15,8 @@
 </tr>
 <tr>
 	<?php
-	//$link = mysqli_connect("localhost","root","","ubung");
-	//$link = mysqli_connect("localhost","ca17100","ca17100","ca17100");
-	$link = mysqli_connect("localhost", "root", "", "", "3306");
+	$link = mysqli_connect("localhost","root","","ubung");
+	//$link = mysqli_connect("localhost", "root", "", "", "3306");
 	
 	$select = "select orderdetails.OrderId, product.Name, orderdetails.Quantity, orderdetails.Price FROM orderdetails JOIN product ON orderdetails.ProductId=product.Id";
 	$run = mysqli_query($link, $select);
@@ -65,7 +64,7 @@
 	  
 ?>
 <br>
-<form action="orderMain.php" method="post">
+<form action="foodMenu.php" method="post">
 <button class="v_btn" type="submit">Go to Main Page</button>
 </form>
 </center>

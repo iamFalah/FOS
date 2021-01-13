@@ -73,9 +73,10 @@
         <span>Orders</span>
     </a>
     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-        <a class="dropdown-item" href="/<?php echo ROOT ?>/orders/orderMain.php">Main</a>
+        <a class="dropdown-item" href="/<?php echo ROOT ?>/orders/foodMenu.php">Food Menu</a>
+        <!--a class="dropdown-item" href="/<?php echo ROOT ?>/orders/orderMain.php">Main</a-->
 		<a class="dropdown-item" href="/<?php echo ROOT ?>/orders/viewDespatcher.php">View Despatcher</a>
-		<a class="dropdown-item" href="/<?php echo ROOT ?>/orders/viewVouchers.php">View Vouchers</a>
+		<!--a class="dropdown-item" href="/<?php echo ROOT ?>/orders/viewVouchers.php">View Vouchers</a-->
     </div>
     </li>
 	<?php if (IsInRole('Customer')) { ?>

@@ -7,9 +7,12 @@ $a = $_SESSION['username'];?>
     <li class="breadcrumb-item">
       <a href="../index.php">Dashboard</a>
     </li>
-	
+  
     <li class="breadcrumb-item active">Profile</li>
   </ol>
+
+<h1 align="center">Customer Profile</h1>
+  
   <?php
    //SQL query
     $query = "SELECT * FROM user where username = '$a'; " or die(mysqli_connect_error());
@@ -20,44 +23,47 @@ $a = $_SESSION['username'];?>
     echo "<table border='1'>";
 
     while ($row = mysqli_fetch_array($result)) {
+
+       $a = $row["Id"];
+       $b = $row["UserName"];
+       $c = $row["Address"];
+       $d = $row["Phone"];
+       $e = $row["Email"];
+
         echo '
   
-  	<h2>Your Profile:</h2>
-    <table border="1">
-        <tr>
-            <td>Username:</td>
-            <td>'
-               
-           . $row["UserName"].
-                
+    <!--bostrap-->
+   <table class="table">
+   <thead class="thead-dark">
+   <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+          <tr>   
+            <td>'  
+           . $a.   
             '</td>
-        </tr>
-		<tr>
-            <td>Email:</td>
-            <td>'
-               
-           . $row["Email"].
-                
+            <td>'   
+           . $b.    
             '</td>
-        </tr>
-        <tr>
-            <td>Phone number:</td>
-            <td>'
-               
-           . $row["Phone"].
-                
+            <td>'  
+           . $c.   
             '</td>
+            <td>'  
+           . $d.   
+            '</td> 
+            <td>'  
+           . $e.   
+            '</td> 
+           
+
+
+
         </tr>
-		<tr>
-            <td>Address:</td>
-            <td>'
-               
-           . $row["Address"].
-                
-            '</td>
-        </tr>
-		 <tr>
-            <td style="background-color:black">
+     <tr>
+            <td style="background-color:white">
                 <button onclick="window.location.href = \'updateCustomer.php?id=' . $row["Id"] . '\';">Edit</button>
             </td>
            
@@ -68,13 +74,13 @@ $a = $_SESSION['username'];?>
         ';   
      }
     echo "</table>";
-	?>
-	<?php include '../footer.php';?>
+  ?>
+  <?php include '../footer.php';?>
   
 
 
 
 
-	
-	
+  
+  
 

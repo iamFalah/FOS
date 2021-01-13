@@ -7,6 +7,7 @@
 	
     <li class="breadcrumb-item active">Profile</li>
   </ol>
+  
   <?php
   $submit = '';
   if (isset($_POST['submit'])){

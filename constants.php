@@ -1,5 +1,5 @@
 <?php
-    define("ROOT", "UBung"); //Application root folder
+    define("ROOT", "FOS"); //Application root folder
     //define("ROOT", "BCS22432019/CA17100"); //Application root folder
 
     //Roles

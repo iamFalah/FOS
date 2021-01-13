@@ -7,21 +7,21 @@
 <html>
 <body>
 <center>
-<table border="1" align="center">
-<tr>
-	<th>UserId</th>
-	<th>Name</th>
-	<th>Address</th>
-	<th>Phone</th>
-	<th>Email</th>
-	<th></th>
-</tr>
-<tr>
-	<?php
-	//$link = mysqli_connect("localhost","root","","ubung");
-	//$link = mysqli_connect("localhost","ca17100","ca17100","ca17100");
-	$link = mysqli_connect("localhost", "root", "", "", "3306");
-	
+	<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <?php
+	$link = mysqli_connect("localhost","root","","ubung");
 	$select = "select * from user WHERE Role='Despatcher' ";
 	$run = mysqli_query($link, $select);
 
@@ -32,21 +32,22 @@
 		$Phone			= $row['Phone'];
 		$Email			= $row['Email'];
 	?>
-	<td align="center"><?php echo $Id;?></td>
-	<td align="center"><?php echo $Name;?></td>
-	<td align="center"><?php echo $Address;?></td>
-	<td align="center"><?php echo $Phone;?></td>
-	<td align="center"><?php echo $Email;?></td>
-	<form action="selection2.php" method="post">
-	<td align="center">
+      
+      <td><?php echo $Id;?></td>
+      <td><?php echo $Name;?></td>
+      <td><?php echo $Address;?></td>
+      <td><?php echo $Phone;?></td>
+      <td><?php echo $Email;?></td>
+      <form action="selection2.php" method="post">
+		<td align="center">
 		<input type="hidden" name="Id" value=<?php echo $Id; ?> >
 		<input type="submit" value="select"></td>
-	</form>
-</tr>
-	<?php }  ?>
-</table>
+	  </form>
+    </tr>
+  </tbody><?php }  ?>
+	</table>
 <br>
-<form action="orderMain.php" method="post">
+<form action="foodMenu.php" method="post">
 <button class="v_btn" type="submit">Go to Main Page</button>
 </form>
 </center>

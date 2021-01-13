@@ -6,29 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Enter Your Data</title>
 </head>
-<?php include 'dataConnection.php';?>
 <body> 
 <?php include 'menuFood.php'; ?>
-<?php
+    <?php
+    $link = mysqli_connect("localhost","root","","ubung");
+    
+    $select = "select Id FROM restaurant JOIN product ON restaurant.Id=product.RestaurantId";
+    $run = mysqli_query($link, $select);
 
-	$n = $_POST["Name"];
-	$d = $_POST["Description"];
-	$p = $_POST["Price"];
-	$r = $_POST["RName"];
-		
-	$query = "insert into Product (Id, Name, Description, Price, RName) values 
-            ('', '$n', '$d', '$p', '$r')" 
-	or die(mysqli_connect_error());
+    while($row = mysqli_fetch_array($run)){
+        $Name = $_POST["Name"];
+        $RestaurantID = $_POST["RestaurantID"];
+        $Description = $_POST["Description"];
+        $Price = $_POST["Price"];
+    ?>
+    
+<!-- <?php
+
+	$Name = $_POST["Name"];
+    $RestaurantID = $_POST["Id"];
+	$Description = $_POST["Description"];
+	$Price = $_POST["Price"];
+
+    $link = mysqli_connect("localhost","root","","ubung");
+    
+    $select = "select Id FROM restaurant JOIN product ON restaurant.Id=product.RestaurantId";
+    $run = mysqli_query($link, $select);
+
+    while($row = mysqli_fetch_array($run)){
+        $Name = $_POST["Name"];
+        $RestaurantID = $_POST["RestaurantID"];
+        $Description = $_POST["Description"];
+        $Price = $_POST["Price"];
+
+	$query = "insert into Product (Id, Name, RestaurantID, Description, Price) values 
+            ('', '$Name', '$RestaurantID', '$Description', '$Price')" ;
 
     // to run sql query in database
     $result = mysqli_query($link, $query);
 
     //Check whether the insert was successful or not
-	if($result) {
+    if(mysqli_query($link, $query)) {
         echo("Data successfully");
     }else {
         die("Your Insert failed" . mysqli_error($link));
     }
-?>
+
+?> -->
 </body>
 </html>

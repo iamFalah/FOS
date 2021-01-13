@@ -1,8 +1,8 @@
 <?php
 //Connect to the database server.
     //Local
-    $link = mysqli_connect("localhost", "root", "", "", "3306");
-
+    //$link = mysqli_connect("localhost", "root", "", "", "3306");
+	$link = mysqli_connect("localhost","root","","ubung");
     //Server
     //$link = mysqli_connect("localhost", "ca17100", "ca17100", "ca17100");
 
